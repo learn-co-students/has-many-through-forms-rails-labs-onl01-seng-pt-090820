@@ -4,10 +4,6 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :users, through: :comments
 
-  accepts_nested_attributes_for :comments, reject_if: :comment_blank
-
-  # accepts_nested_attributes_for :categories
-
   def categories_attributes=(category_attributes)
     
       category_attributes.values.each do |category_attribute|
@@ -21,10 +17,5 @@ class Post < ActiveRecord::Base
       end
     
   end
-
-  def comment_blank(attributes) 
-    attributes[:content].blank?
-  end
-
 
 end
