@@ -9,17 +9,28 @@
 <h2>Comments:</h2>
 <ul>
 <% @post.comments.each do |comment| %>
-    <li><%= comment.to_s if comment.user %></li>
+    <li><%= comment.to_s %></li>
 <% end %>
 </ul>
-<h2>All Users Who Have Commented:</h2>
+
+<%# <h2>All Users Who Have Commented:</h2>
 <ul>
 <% @post.all_uniq_users_commenting.each do |user| %>
-    <% if user && user.username %>
-    <li><%= link_to(user.username, user_path(user)) %></li>
-    <% end %>
+    <%# <% if user && user.username %>
+    <%# <li><%= link_to(user.username, user_path(user)) %>
+    <%# <% end %> 
+<%# <% end %> 
+<%# </ul> %>
+
+Commentors:
+<ul>
+<% @post.users.distinct.each do |user| %>
+  <li>
+    <%= link_to user.username, user_path(user) %>
+  </li>
 <% end %>
 </ul>
+
 <%= form_for @comment do |f| %>
     <%= f.hidden_field :post_id, value: @post.id %>
     <%= f.label :content %>

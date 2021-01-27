@@ -14,10 +14,12 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def all_uniq_users_commenting
-    users = self.comments.map do |comment|
-      comment.user
-    end
-    users.uniq
-  end
+  # def all_uniq_users_commenting
+  #   if self.comments
+  #     users = self.comments.map do |comment|
+  #      comment.user
+  #     end
+  #     users.uniq
+  #   end
+  # end
 end
