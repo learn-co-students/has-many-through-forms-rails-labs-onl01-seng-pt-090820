@@ -1,9 +1,27 @@
 
 <h1> THE POST SHOW </h1>
+<h3> Title: </h3>
+<h2><%= @post.title %></h2>
+<h3> Category: </h3>
+<% @post.post_categories.each do |post_category| %>
+  <%= post_category.category.name %>
+  <% end %>
 
-<%= @post.title %>
+<h3> Content: </h3>
 <%= @post.content %>
-<%= @post.category %>
+
+<h3> Comment: </h3>
+<% @post.comments.each do |comment_content| %>
+  <%= comment_content.content %>
+  <% end %>
+
+<h3> Commentor: </h3>
+<% @post.users.each do |user| %>
+  <%= user.name %>
+  <% end %>
+
+
+
 
 
 
