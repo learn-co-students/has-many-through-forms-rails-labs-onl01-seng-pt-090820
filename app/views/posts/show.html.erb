@@ -14,9 +14,7 @@
 
 <h3> Comment: </h3>
   <% @post.comments.each do |comment| %>
-    <%= comment.user.username %> 
-    says:
-    <%= comment.content %>
+    <%= comment.user.username %> says: <%= comment.content %>
   <% end %>
 
 <h3> Users: </h3>
