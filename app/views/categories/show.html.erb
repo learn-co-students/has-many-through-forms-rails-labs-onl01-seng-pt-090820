@@ -1,0 +1,7 @@
+
+<h1> THE CATEGORIES SHOW PAGE</h1>
+<% @category.post_categories.each do |post_category| %>
+  <%= link_to post_category.post.title, post_path %>
+  <% end %>
+
+

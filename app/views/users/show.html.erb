@@ -1,1 +1,11 @@
 
+<h1>SHOULD SHOW ALL RELATED POSTS THE USER COMMENTED ON</h1>
+
+
+<h1><%= @user.username %></h1>
+Comments:
+<% @user.posts.each do |post|%>
+  <p>
+    <%= link_to post.title, post_path(post) %>
+  </p>
+<% end %>
