@@ -1,10 +1,10 @@
 <h1> Create A New Post </h1>
 <%= form_for @post do |f|%>
-  <%= f.label "Title:" %>
+  <%= f.label :title %>
   <%= f.text_field :title %><br>
-  <%= f.label "Content:" %>
+  <%= f.label :content %>
   <%= f.text_area :content %><br>
-  <%= f.label "Category:" %>
+  <%= f.label :category %>
   <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %><br>
   <%= f.label "New Category:" %>
   <%= f.fields_for :categories, @post.categories.build do |categories_fields| %><br>
