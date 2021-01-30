@@ -13,21 +13,20 @@
 <%= @post.content %>
 
 <h3> Comment: </h3>
-<% @post.users.each do |user| %>
-  <%= user.username %> says:
-  <% end %><br>
-<% @post.comments.each do |comment_content| %>
-  <%= comment_content.content %><br>
+  <% @post.comments.each do |comment| %>
+    <%= comment.user.username %> 
+    says:
+    <%= comment.content %>
   <% end %>
 
 <h3> Users: </h3>
 <% @post.users.each do |user| %>
-  <%= user.username %>
+  <%= user.username %><br>
   <% end %>
 
 
 
-  <h1> Comment </h1>
+  <h1> NEW Comment </h1>
       <%= form_for @comment do |f| %>
         <%= f.collection_select(:user_id, User.all, :id, :username, prompt: true) %><br>
         <%= f.fields_for :user, User.new do |user_fields| %>
